@@ -3,8 +3,7 @@ import './Cart.css';
 
 const Cart = (props) => {
     const cart = props.cart;
-    const total = cart.reduce((total, prd) => total + prd.price, 0);
-    
+    const total = cart.reduce((total, prd) => total + prd.price * prd.quantity, 0);
     
     // let total = 0;
     // for (let i = 0; i < props.cart.length; i++) {
@@ -40,6 +39,10 @@ const Cart = (props) => {
             <p><small>Shipping Cost: {shipping} </small></p>
             <p><small>Tax + VAT: {numberMaker(tax)}</small></p>
             <p>Total Price: {numberMaker(grandTotal)}</p>
+            <br/>
+            {
+                props.children
+            }
         </div>
     );
 };
