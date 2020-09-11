@@ -5,12 +5,14 @@ import { useEffect } from 'react';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
 import HappyImage from '../../images/giphy.gif'
+import { useHistory } from 'react-router-dom';
 
 const Review = () => {
     const databaseCart = getDatabaseCart();
     const keys = Object.keys(databaseCart)
     const [cart, setCart] = useState([])
     const [placeOrder, setPlaceOrder] = useState(false);
+    const history = useHistory();
     useEffect(() => {
         const cartProducts = keys.map(key => {
             const product = fakeData.find(pd => pd.key === key);
@@ -28,11 +30,12 @@ const Review = () => {
         removeFromDatabaseCart(productKey)
     }
     
-    const handlePlaceOrder = () => {
-        processOrder()
-        setCart([]);
-        setPlaceOrder(true);
-        console.log('place order clicked');
+    const handleProceedCheckout = () => {
+        // processOrder()
+        // setCart([]);
+        // setPlaceOrder(true);
+        // console.log('place order clicked');
+        history.push('/shipment')
     }
 
     let thankYou;
@@ -52,7 +55,7 @@ const Review = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
-                    <button onClick={handlePlaceOrder} className="main-button">Place Order</button>
+                    <button onClick={handleProceedCheckout} className="main-button">Proceed Checkout</button>
                 </Cart>
             </div>
         </div>

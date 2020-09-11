@@ -12,11 +12,10 @@
     font-weight: 400;
 }
 .main-button{
-    height: 30px;
-    width: 120px;
+
     background-color: goldenrod;
     border: 1px solid black;
-    padding: 5px 5px;
+    padding: 5px 15px;
     margin-bottom: 5px;
     border-radius: 5px;
 }
