@@ -20,7 +20,7 @@ const Review = () => {
             return product;
         })
         setCart(cartProducts)
-        console.log(cart);
+        // console.log(cart);
     },[])
     // const quantities = Object.values(databaseCart)
     const removeItem = (productKey) => {
